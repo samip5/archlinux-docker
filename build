@@ -1,12 +1,13 @@
 #!/bin/bash -ex
 
-DOCKER_ARCH=${BUILD_ARCH:-arm32v7}
-DOCKER_ORG=agners
-DOCKER_IMAGE=archlinuxarm-${DOCKER_ARCH}
+DOCKER_ARCH=${BUILD_ARCH:-amd64}
+DOCKER_ORG=lopsided
+DOCKER_IMAGE=archlinux-${DOCKER_ARCH}
 
-TAG_DATE=$(date +'%Y%m%d')
+docker build --build-arg ARCH=${DOCKER_ARCH} \
+  -t $DOCKER_ORG/$DOCKER_IMAGE \
+	-f Dockerfile .
 
-docker build -t $DOCKER_ORG/$DOCKER_IMAGE \
-	-t $DOCKER_ORG/$DOCKER_IMAGE:$TAG_DATE \
-	-f Dockerfile.${DOCKER_ARCH} .
-
+docker build --build-arg ARCH=${DOCKER_ARCH} \
+  -t $DOCKER_ORG/$DOCKER_IMAGE:devel \
+	-f Dockerfile.devel .

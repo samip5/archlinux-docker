@@ -14,12 +14,17 @@ fi
 
 [[ -d $newroot ]] || die "%s is not a directory" "$newroot"
 
-echo 'Creating install root at %s' "$newroot"
+printf 'Creating install root at %s\n' "$newroot"
 mkdir -m 0755 -p "$newroot"/var/{cache/pacman/pkg,lib/pacman,log} "$newroot"/{dev,run,etc}
 mkdir -m 1777 -p "$newroot"/tmp
 mkdir -m 0555 -p "$newroot"/{sys,proc}
 
-echo 'Installing packages to %s' "$newroot"
+# gnupg install script needs /dev/null
+ln -s /dev/null "$newroot"/dev/null
+
+printf 'Installing packages to %s \n' "$newroot"
 if ! pacman -r "$newroot" -Sy --noconfirm "${pacman_args[@]}"; then
 	die 'Failed to install packages to new root'
 fi
+
+rm "$newroot"/dev/null

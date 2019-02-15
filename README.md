@@ -1,22 +1,23 @@
-# Basic Arch Linux ARM Docker images [![Build Status](https://travis-ci.org/agners/archlinuxarm-docker.svg?branch=master)](https://travis-ci.org/agners/archlinuxarm-docker)
+# Basic Arch Linux Docker images [![Build Status](https://travis-ci.org/lopsided/archlinuxarm-docker.svg?branch=master)](https://travis-ci.org/lopsided/archlinuxarm-docker)
 
-Docker images for Arch Linux ARM on AArch32 (ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using Qemu emulation.
+Docker images for Arch Linux on x86_64, AArch32 (ARMv5TE, ARMv6, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
 ## Running the images
 
-The images are on [Docker Hub](https://hub.docker.com/u/agners/). Use the convenient `docker run`:
+The images are on [Docker Hub](https://hub.docker.com/u/lopsided/). Use the convenient `docker run`:
 
-    docker run --rm -ti agners/archlinuxarm
+    docker run --rm -ti lopsided/archlinux
 
 Instead of using the multi-arch container above, you can also get the architecture specific image directly:
 
-    docker run --rm -ti agners/archlinuxarm-arm32v7
+    docker run --rm -ti lopsided/archlinux-arm32v7
 
 ## Tags
 
-|  Tag   |   Update   |  Type   |                                 Description                                        |
-|:------:|:----------:|:-------:|:-----------------------------------------------------------------------------------|
-| latest | **weekly** | minimal | minimal Arch Linux ARM with pacman support                                        |
+|  Tag   |   Update   |     Type     |                                 Description                                        |
+|:------:|:----------:|:------------:|:-----------------------------------------------------------------------------------|
+| latest | **daily**  | minimal      | Minimal Arch Linux with pacman support                                             |
+| devel  | **daily**  | base-devel   | Arch Linux with base-devel installed                                               |
 
 ### Layer structure
 
@@ -26,7 +27,7 @@ images small.
 
 ## Issues and improvements
 
-If you want to contribute, get to the [issues-section of this repository](https://github.com/agners/archlinuxarm-docker/issues).
+If you want to contribute, get to the [issues-section of this repository](https://github.com/lopsided/archlinuxarm-docker/issues).
 
 ## Common hurdles
 
@@ -35,7 +36,7 @@ If you want to contribute, get to the [issues-section of this repository](https:
 Simply add the `TZ` environment-variable and define it with a valid timezone-value.
 
 ```
-docker run -e TZ=Europe/Berlin agners/archlinuxarm
+docker run -e TZ=America/New_York lopsided/archlinux
 ```
 
 ## Building it yourself
@@ -49,6 +50,9 @@ docker run -e TZ=Europe/Berlin agners/archlinuxarm
 
 - Prepare binfmt use with Qemu user mode using `sudo ./prepare-qemu`
 - Run `BUILD_ARCH=<arch> ./build` to build
+  - Use `BUILD_ARCH=amd64` for x86_64
+  - Use `BUILD_ARCH=arm32v5` for ARMv5 Aarch32
+  - Use `BUILD_ARCH=arm32v6` for ARMv6 Aarch32
   - Use `BUILD_ARCH=arm32v7` for ARMv7 Aarch32
   - Use `BUILD_ARCH=arm64v8` for ARMv8 Aarch64
 
@@ -56,15 +60,14 @@ If you want to push the images, run `./push`. *But be aware you have no push acc
 
 ### Building from scratch
 
-Since the image depends on itself, the question which arise is how this all
+Since the image depends on itself, the question which arises is how this all
 started. The initial containers have been created using the tarballs provided by
 the Arch Linux ARM project. I used the following steps to bootstrap for each
 architecture:
 
 ```
-sudo tar xvzf ArchLinuxARM-armv7-latest.tar.gz -C tmp-arch
-sudo tar cf ArchLinuxARM-armv7-latest.tar -C tmp-arch/ .
-docker import ArchLinuxARM-armv7-latest.tar agners/armv7-archlinux:latest
+gzip -d ArchLinuxARM-armv7-latest.tar.gz
+docker import ArchLinuxARM-armv7-latest.tar lopsided/archlinux-arm32v7:latest
 ```
 
 ## Credits
@@ -72,6 +75,11 @@ docker import ArchLinuxARM-armv7-latest.tar agners/armv7-archlinux:latest
 Ideas have been taken from already existing Docker files for Arch Linux.
 However, this repository takes a slightly different approach to create images.
 
+- https://github.com/agners/archlinux-docker
+  - Limited architectures
+  - Duplication of Dockerfiles
+  - Only built weekly
+  - No image with base-devel preinstalled
 - https://github.com/archlinux/archlinux-docker
   - Focus on Arch Linux for x86
   - Uses docker run in priviledged mode to build images
