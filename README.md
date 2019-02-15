@@ -1,4 +1,4 @@
-# Basic Arch Linux Docker images [![Build Status](https://travis-ci.org/lopsided/archlinuxarm-docker.svg?branch=master)](https://travis-ci.org/lopsided/archlinuxarm-docker)
+# Basic Arch Linux Docker images [![Build Status](https://travis-ci.com/lopsided98/archlinux-docker.svg?branch=master)](https://travis-ci.com/lopsided98/archlinux-docker)
 
 Docker images for Arch Linux on x86_64, AArch32 (ARMv5TE, ARMv6, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
