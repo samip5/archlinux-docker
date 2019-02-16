@@ -14,10 +14,10 @@ Instead of using the multi-arch container above, you can also get the architectu
 
 ## Tags
 
-|  Tag   |   Update   |     Type     |                                 Description                                        |
-|:------:|:----------:|:------------:|:-----------------------------------------------------------------------------------|
-| latest | **daily**  | minimal      | Minimal Arch Linux with pacman support                                             |
-| devel  | **daily**  | base-devel   | Arch Linux with base-devel installed                                               |
+|  Tag   |   Update   |    Type    |              Description               |
+|:------:|:----------:|:----------:|:---------------------------------------|
+| latest | **daily**  | minimal    | Minimal Arch Linux with pacman support |
+| devel  | **daily**  | base-devel | Arch Linux with base-devel installed   |
 
 ### Layer structure
 
@@ -27,7 +27,7 @@ images small.
 
 ## Issues and improvements
 
-If you want to contribute, get to the [issues-section of this repository](https://github.com/lopsided/archlinuxarm-docker/issues).
+If you want to contribute, get to the [issues-section of this repository](https://github.com/lopsided98/archlinux-docker/issues).
 
 ## Common hurdles
 
