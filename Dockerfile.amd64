@@ -6,7 +6,7 @@ WORKDIR /archlinux
 RUN mkdir -p /archlinux/rootfs
 
 RUN pacman-key --init
-RUN packman-key --populate archlinux || pacman-key --populate archlinuxarm
+RUN packman-key --populate archlinux
 
 COPY pacstrap-docker /archlinux/
 
@@ -27,6 +27,6 @@ ENV LANG=en_US.UTF-8
 
 RUN locale-gen
 RUN pacman-key --init
-RUN pacman-key --populate archlinux || pacman-key --populate archlinuxarm
+RUN pacman-key --populate archlinux
 
 CMD ["/usr/bin/bash"]

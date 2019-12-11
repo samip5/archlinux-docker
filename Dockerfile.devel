@@ -1,5 +1,8 @@
 ARG ARCH=amd64
-FROM lopsided/archlinux-$ARCH
+FROM samip537/archlinux:$ARCH-latest
+
+RUN pacman-key --init
+RUN pacman-key --populate archlinux || pacman-key --populate archlinuxarm
 
 RUN pacman -Syu --noconfirm --needed base-devel
 

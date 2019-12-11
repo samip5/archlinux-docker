@@ -1,16 +1,16 @@
-# Basic Arch Linux Docker images [![Build Status](https://travis-ci.com/lopsided98/archlinux-docker.svg?branch=master)](https://travis-ci.com/lopsided98/archlinux-docker)
+# Basic Arch Linux Docker images [![Build Status](https://travis-ci.com/samip5/archlinux-docker.svg?branch=master)](https://travis-ci.com/samip537/archlinux-docker)
 
-Docker images for Arch Linux on x86_64, AArch32 (ARMv5TE, ARMv6, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
+Docker images for Arch Linux on x86_64, AArch32 (ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
 ## Running the images
 
-The images are on [Docker Hub](https://hub.docker.com/u/lopsided/). Use the convenient `docker run`:
+The images are on [Docker Hub](https://hub.docker.com/u/samip537/). Use the convenient `docker run`:
 
-    docker run --rm -ti lopsided/archlinux
+    docker run --rm -ti samip537/archlinux
 
 Instead of using the multi-arch container above, you can also get the architecture specific image directly:
 
-    docker run --rm -ti lopsided/archlinux-arm32v7
+    docker run --rm -ti samip537/archlinux-arm32v7
 
 ## Tags
 
@@ -36,7 +36,7 @@ If you want to contribute, get to the [issues-section of this repository](https:
 Simply add the `TZ` environment-variable and define it with a valid timezone-value.
 
 ```
-docker run -e TZ=America/New_York lopsided/archlinux
+docker run -e TZ=Europe/Helsinki samip537/archlinux
 ```
 
 ## Building it yourself
@@ -67,7 +67,7 @@ architecture:
 
 ```
 gzip -d ArchLinuxARM-armv7-latest.tar.gz
-docker import ArchLinuxARM-armv7-latest.tar lopsided/archlinux-arm32v7:latest
+docker import ArchLinuxARM-armv7-latest.tar samip537/archlinux-arm32v7:latest
 ```
 
 ## Credits
