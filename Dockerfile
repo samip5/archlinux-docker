@@ -6,7 +6,7 @@ WORKDIR /archlinux
 RUN mkdir -p /archlinux/rootfs
 
 RUN pacman-key --init
-RUN packman-key --populate archlinux || pacman-key --populate archlinuxarm
+RUN pacman-key --populate archlinux || pacman-key --populate archlinuxarm
 
 COPY pacstrap-docker /archlinux/
 
