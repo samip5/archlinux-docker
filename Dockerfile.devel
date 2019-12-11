@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-FROM samip537/archlinux:$ARCH-latest
+FROM samip537/archlinux:$ARCH
 
 RUN pacman-key --init
 RUN pacman-key --populate archlinux || pacman-key --populate archlinuxarm

@@ -4,11 +4,11 @@ DOCKER_ARCH=${BUILD_ARCH:-amd64}
 DOCKER_ORG=samip537
 DOCKER_IMAGE=archlinux:${DOCKER_ARCH}
 
-#if [ ${BUILD_ARCH} = "amd64" ]; then
-#        docker build --build-arg ARCH=${DOCKER_ARCH} \
-#                -t $DOCKER_ORG/$DOCKER_IMAGE \
-#                -f Dockerfile.amd64 .
-#fi
+if [ ${BUILD_ARCH} = "amd64" ]; then
+        docker build --build-arg ARCH=${DOCKER_ARCH} \
+                -t $DOCKER_ORG/$DOCKER_IMAGE \
+                -f Dockerfile.amd64 .
+fi
 
 docker build --build-arg ARCH=${DOCKER_ARCH} \
         -t $DOCKER_ORG/$DOCKER_IMAGE \
