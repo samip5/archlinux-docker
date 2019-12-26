@@ -12,4 +12,8 @@ WORKDIR /usr/local/src/
 
 RUN git clone https://aur.archlinux.org/yay.git
 RUN cd yay && makepkg -si --noconfirm
-RUN sudo rm /var/lib/pacman/sync/* && sudo rm -rf /var/cache/*
+RUN sudo rm -f \
+      /var/cache/pacman/pkg/* \
+      /var/lib/pacman/sync/* \
+      /README \
+      /etc/pacman.d/mirrorlist.pacnew

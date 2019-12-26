@@ -4,7 +4,9 @@ FROM samip537/archlinux:$ARCH
 RUN pacman-key --init
 RUN pacman-key --populate archlinux || pacman-key --populate archlinuxarm
 
-RUN pacman -Syu --noconfirm --needed base-devel git
-
-# Remove current pacman database, likely outdated very soon
-RUN rm /var/lib/pacman/sync/* && rm -rf /var/cache/*
+# Install packaged and remove database/caches and man pages.
+RUN pacman -Syu --noconfirm --needed base-devel git && rm -f \
+      /var/cache/pacman/pkg/* \
+      /var/lib/pacman/sync/* \
+      /README \
+      /etc/pacman.d/mirrorlist.pacnew
