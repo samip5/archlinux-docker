@@ -3,7 +3,7 @@
 DOCKER_ORG=samip537
 DOCKER_IMAGE=archlinux
 
-TAGS="devel"
+TAGS="devel yay"
 
 for TAG in $TAGS
 do
