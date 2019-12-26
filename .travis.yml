@@ -1,12 +1,14 @@
 dist: xenial
+os: linux
 language: generic
-sudo: required
 go:
   - stable
 services:
   - docker
 env:
   - BUILD_ARCH=amd64
+  - BUILD_ARCH=arm32v5
+  - BUILD_ARCH=arm32v6
   - BUILD_ARCH=arm32v7
   - BUILD_ARCH=arm64v8
 install:
