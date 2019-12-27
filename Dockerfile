@@ -1,4 +1,4 @@
-ARG ARCH=amd64
+ARG ARCH=${BUILD_ARCH}
 FROM samip537/archlinux:$ARCH
 
 WORKDIR /archlinux
@@ -23,7 +23,7 @@ RUN rm -rf \
       /etc/pacman.d/mirrorlist.pacnew
 
 FROM scratch
-ARG ARCH=amd64
+ARG ARCH=${BUILD_ARCH}
 
 COPY --from=0 /archlinux/rootfs/ /
 COPY rootfs/common/ /

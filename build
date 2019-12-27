@@ -15,3 +15,5 @@ docker build --build-arg ARCH=${DOCKER_ARCH} \
 docker build --build-arg ARCH=${DOCKER_ARCH} \
         -t $DOCKER_ORG/$DOCKER_IMAGE-yay \
         -f Dockerfile.devel-yay .
+
+

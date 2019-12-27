@@ -1,4 +1,4 @@
-ARG ARCH=amd64
+ARG ARCH=${BUILD_ARCH}
 FROM samip537/archlinux:$ARCH
 
 RUN pacman-key --init

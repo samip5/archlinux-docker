@@ -1,4 +1,4 @@
-ARG ARCH=amd64
+ARG ARCH=${BUILD_ARCH}
 FROM samip537/archlinux:devel
 
 RUN pacman -Sy go git --noconfirm
