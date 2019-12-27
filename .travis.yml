@@ -1,4 +1,7 @@
 dist: xenial
+arch:
+  - amd64
+  - arm64
 os: linux
 language: generic
 go:
@@ -6,11 +9,9 @@ go:
 services:
   - docker
 env:
-  - BUILD_ARCH=amd64
   - BUILD_ARCH=arm32v5
   - BUILD_ARCH=arm32v6
   - BUILD_ARCH=arm32v7
-  - BUILD_ARCH=arm64v8
 install:
   - 'echo ''{ "experimental": true }'' | sudo tee /etc/docker/daemon.json'
   - sudo systemctl restart docker
@@ -25,6 +26,18 @@ after_success:
 
 jobs:
   include:
+    - os: linux
+      arch: amd64
+      services:
+       - docker
+      env:
+       - BUILD_ARCH=amd64
+    - os: linux
+      arch: arm64
+      services:
+       - docker
+      env:
+       - BUILD_ARCH=arm64v8
     - stage: deploy
       name: "Create Manifest"
       install: 'mkdir $HOME/.docker/ && echo ''{ "experimental": "enabled" }'' > $HOME/.docker/config.json'
