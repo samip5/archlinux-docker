@@ -8,9 +8,8 @@ TAGS="devel yay"
 for TAG in $TAGS
 do
 	docker manifest create --amend $DOCKER_ORG/$DOCKER_IMAGE:$TAG \
-	      $DOCKER_ORG/$DOCKER_IMAGE:amd64-$TAG \
 	      $DOCKER_ORG/$DOCKER_IMAGE:arm32v5-$TAG \
-              $DOCKER_ORG/$DOCKER_IMAGE:arm32v6-$TAG \
+          $DOCKER_ORG/$DOCKER_IMAGE:arm32v6-$TAG \
 	      $DOCKER_ORG/$DOCKER_IMAGE:arm32v7-$TAG \
 	      $DOCKER_ORG/$DOCKER_IMAGE:arm64v8-$TAG
 
