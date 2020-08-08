@@ -15,7 +15,6 @@ jobs:
       arch: amd64
       env:
        - BUILD_ARCH=amd64
-       - BUILD_ARCH=arm32v5
        - BUILD_ARCH=arm32v6
        - BUILD_ARCH=arm32v7
       install:

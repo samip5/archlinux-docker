@@ -1,6 +1,6 @@
 # Basic Arch Linux Docker images [![Build Status](https://travis-ci.com/samip5/archlinux-docker.svg?branch=master)](https://travis-ci.com/samip537/archlinux-docker)
 
-Docker images for Arch Linux on x86_64, AArch32 (ARMv5-A, ARMv6-A, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
+Docker images for Arch Linux on x86_64, AArch32 (ARMv6-A, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
 ## Running the images
 
@@ -17,7 +17,6 @@ Instead of using the multi-arch container above, you can also get the architectu
 |  Tag   |   Update   |    Type    |              Description               |
 |:------:|:----------:|:----------:|:---------------------------------------|
 | amd64 | **daily**  | minimal    | Minimal Arch Linux with pacman support |
-| arm32v5 | **daily**  | minimal    | Minimal Arch Linux with pacman support |
 | arm32v6 | **daily**  | minimal    | Minimal Arch Linux with pacman support |
 | arm32v7 | **daily**  | minimal    | Minimal Arch Linux with pacman support |
 | arm64v8 | **daily**  | minimal    | Minimal Arch Linux with pacman support |
