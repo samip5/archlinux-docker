@@ -1,4 +1,4 @@
-dist: xenial
+dist: focal
 arch:
   - amd64
   - arm64
@@ -30,7 +30,7 @@ jobs:
        - '[ "$TRAVIS_PULL_REQUEST" == "false" ] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && ./push'
     - stage: build
       os: linux
-      arch: arm64
+      arch: arm64-graviton2
       env:
        - BUILD_ARCH=arm64v8
       install:   
@@ -39,7 +39,7 @@ jobs:
       before_script:
        - chmod -R g-w ./
       script:   
-       - ./build 
+       - ./build
       after_success:
        - '[ "$TRAVIS_PULL_REQUEST" == "false" ] && docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && ./push'
     - stage: deploy
