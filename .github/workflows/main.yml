@@ -14,7 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup Docker to use experimental mode.
-        run: sudo cp daemon.json /etc/docker/daemon.json && sudo systemctl restart docker 
+        run: sudo cp daemon.json /etc/docker/daemon.json && sudo systemctl restart docker
+      - name: Debug information
+        run: |
+         whoami
+         id
+         sudo docker info
       - name: Build minimal
         uses: docker/build-push-action@v2.3.0
         with:
