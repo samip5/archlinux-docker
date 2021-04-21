@@ -32,6 +32,7 @@ jobs:
          build-args: ARCH=arm32v7
          file: Dockerfile
          platforms: linux/arm/v7
+         push: true
          
       - name: Build minimal (ARM64)
         uses: docker/build-push-action@v2
@@ -39,6 +40,7 @@ jobs:
          build-args: ARCH=arm64v8
          file: Dockerfile
          platforms: linux/arm64
+         push: true
          
       - name: Build minimal (AMD64)
         uses: docker/build-push-action@v2
@@ -46,7 +48,7 @@ jobs:
          build-args: ARCH=amd64
          file: Dockerfile
          platforms: linux/amd64
-         
+         push: true
          
       - name: Build with devel tools (ARM32v7)
         uses: docker/build-push-action@v2
@@ -54,6 +56,7 @@ jobs:
          file: Dockerfile.devel
          build-args: ARCH=arm32v7
          platforms: linux/arm/v7
+         push: true
          
       - name: Build with devel tools (ARM64)
         uses: docker/build-push-action@v2
@@ -61,6 +64,7 @@ jobs:
          file: Dockerfile.devel
          build-args: ARCH=arm64v8
          platforms: linux/arm64
+         push: true
          
       - name: Build with devel tools (amd64)
         uses: docker/build-push-action@v2
@@ -68,6 +72,7 @@ jobs:
          file: Dockerfile.devel
          build-args: ARCH=amd64
          platforms: linux/amd64
+         push: true
          
       - name: Build with devel and yay (ARM32v7)
         uses: docker/build-push-action@v2
@@ -75,6 +80,7 @@ jobs:
          file: Dockerfile.devel-yay
          build-args: ARCH=arm32v7
          platforms: linux/arm/v7
+         push: true
          
       - name: Build with devel and yay (ARM64v8)
         uses: docker/build-push-action@v2
@@ -82,6 +88,7 @@ jobs:
          file: Dockerfile.devel-yay
          build-args: ARCH=arm64v8
          platforms: linux/arm64
+         push: true
          
       - name: Build with devel and yay (AMD64)
         uses: docker/build-push-action@v2
@@ -89,3 +96,4 @@ jobs:
          file: Dockerfile.devel-yay
          build-args: ARCH=amd64
          platforms: linux/amd64
+         push: true
