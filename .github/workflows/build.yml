@@ -1,3 +1,5 @@
+name: Builder
+
 on:
   push:
     branches: master
@@ -21,10 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up QEMU
-        run: |
-          sudo apt-get --yes update
-          sudo apt-get --yes --no-install-recommends install qemu-user-static
-          sudo ./prepare-qemu
+        uses: docker/setup-qemu-action@v1.0.2
       - name: Build
         run: ./build
       - name: Login to DockerHub
