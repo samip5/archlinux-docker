@@ -1,5 +1,5 @@
 ARG ARCH=${BUILD_ARCH}
-FROM samip537/archlinux:$ARCH
+FROM samip537/archlinux
 
 WORKDIR /archlinux
 
